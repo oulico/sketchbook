@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meme maker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="colorbar">
+      <input type="color" id="color" />
+      <input
+        type="range"
+        id="line-width"
+        min="1"
+        max="10"
+        value="5"
+        step="0.1"
+      />
+      <input
+        id="r1"
+        name="color"
+        type="radio"
+        type="color"
+        class="color-option"
+        data-color="#1abc9c"
+      /><label style="background-color: #1abc9c" for="r1" class="colorWrapper">
+      </label>
+      <input
+        id="r2"
+        name="color"
+        type="radio"
+        class="color-option"
+        data-color="#3498db"
+      /><label style="background-color: #3498db" for="r2" class="colorWrapper">
+      </label>
+      <input
+        id="r3"
+        name="color"
+        type="radio"
+        class="color-option"
+        data-color="#34495e"
+      />
+      <label style="background-color: #34495e" for="r3" class="colorWrapper">
+      </label>
+      <input
+        id="r4"
+        name="color"
+        type="radio"
+        class="color-option"
+        data-color="#27ae60"
+      />
+      <label style="background-color: #27ae60" for="r4" class="colorWrapper">
+      </label>
+      <input
+        id="r5"
+        name="color"
+        type="radio"
+        class="color-option"
+        data-color="#8e44ad"
+      />
+      <label style="background-color: #8e44ad" for="r5" class="colorWrapper">
+      </label>
+      <input
+        id="r6"
+        name="color"
+        type="radio"
+        class="color-option"
+        data-color="#f1c40f"
+      />
+      <label style="background-color: #f1c40f" for="r6" class="colorWrapper">
+      </label>
+      <input
+        id="r7"
+        name="color"
+        type="radio"
+        class="color-option"
+        data-color="#e74c3c"
+      />
+      <label style="background-color: #e74c3c" for="r7" class="colorWrapper">
+      </label>
+      <input
+        id="r8"
+        name="color"
+        type="radio"
+        class="color-option"
+        data-color="#95a5a6"
+      />
+      <label style="background-color: #95a5a6" for="r8" class="colorWrapper">
+      </label>
+      <input
+        id="r9"
+        name="color"
+        type="radio"
+        class="color-option"
+        data-color="#d35400"
+      />
+      <label style="background-color: #d35400" for="r9" class="colorWrapper">
+      </label>
+      <input
+        id="r10"
+        name="color"
+        type="radio"
+        class="color-option"
+        data-color="#bdc3c7"
+      />
+      <label style="background-color: #bdc3c7" for="r10" class="colorWrapper">
+      </label>
+      <input
+        id="r11"
+        name="color"
+        type="radio"
+        class="color-option"
+        data-color="#2ecc71"
+      />
+      <label style="background-color: #2ecc71" for="r11" class="colorWrapper">
+      </label>
+      <input
+        id="r12"
+        name="color"
+        type="radio"
+        class="color-option"
+        data-color="#e67e22"
+      />
+      <label style="background-color: #e67e22" for="r12" class="colorWrapper">
+      </label>
+    </div>
+    <div class="background">
+      <img src="img/bg.png" alt="Background" id="background" />
+      <canvas></canvas>
+    </div>
+    <div id="buttons">
+      <button id="mode-btn">Background color</button>
+      <button id="destroy-btn">Reset</button>
+      <button id="eraser-btn">Erase</button>
+      <label for="file" class="button"
+        >Upload Picture<input type="file" accept="image/*" id="file"
+      /></label>
+      <div class="text button">
+        Stamp
+        <input type="text" id="text" placeholder="메세지적고 화면 더블클릭" />
+      </div>
+      <button id="save-btn">Save</button>
+      <div class="post-it" contenteditable>
+        <h1>사용방법</h1>
+        <ol>
+          <li>Upload를 클릭해 사진을 업로드하세요</li>
+          <li>색상을 선택해서 그림을 그리세요</li>
+          <li>원하는 문구를 적어 화면을 더블클릭하여 스탬프를 찍으세요</li>
+          <li>Save를 클릭해 그림을 소장하세요!</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

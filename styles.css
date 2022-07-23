@@ -1,0 +1,220 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgb(154, 154, 154) 100%
+  );
+}
+
+.background {
+  position: relative;
+  width: 900px;
+  height: 900px;
+}
+#background {
+  width: 850px;
+  height: 930px;
+}
+canvas {
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  cursor: url("img/whitedot-466075.png"), pointer;
+  width: 800px;
+  height: 800px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+button {
+  margin-top: 30px;
+}
+input {
+  margin-top: 30px;
+}
+#toolbar {
+  width: 100px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+}
+#buttons {
+  width: 100px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.colorbar {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.colorRadioBtn {
+  width: 50px;
+  transition: width 0.1s linear;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.color-option {
+  width: 50px;
+  transition: width 0.1s linear;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+input#line-width {
+  width: 100%;
+  margin-top: 0;
+}
+input#color {
+  width: 100%;
+}
+#buttons {
+  width: 337px;
+  height: 1038px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 100px;
+}
+
+button,
+.button,
+.text {
+  all: unset;
+  width: 299px;
+  height: 50px;
+  /* border: solid 1px black; */
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: mediumpurple;
+  border-radius: 25px;
+}
+#file {
+  display: none;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+}
+#text {
+  border: none;
+  color: black;
+}
+input {
+  color: white;
+  margin-top: 0;
+}
+/* .colorWrapper {
+  border-radius: 25px;
+  width: 50px;
+  height: 50px;
+  outline: red solid 1px;
+} */
+
+.colorWrapper {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+
+  border-radius: 25px;
+  transition: width 0.2s linear;
+}
+.colorWrapper:hover {
+  width: 100%;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + label {
+  width: 100%;
+}
+
+button:hover,
+.button:hover {
+  background-color: pink;
+}
+
+/* 
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+.post-it {
+  width: 300px;
+  height: 400px;
+  position: relative;
+  background: #ffa;
+  overflow: hidden;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 0 0 0 30px/45px;
+  box-shadow: inset 0 -40px 40px rgba(0, 0, 0, 0.2),
+    inset 0 25px 10px rgba(0, 0, 0, 0.2), 0 5px 6px 5px rgba(0, 0, 0, 0.2);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.7em;
+  font-size: 19px;
+  /* -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC); */
+
+  color: #130d6b;
+}
+
+.post-it li {
+  cursor: pointer;
+}
+
+.post-it:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 25px;
+  background: #ffa;
+  box-shadow: 3px -2px 10px rgba(0, 0, 0, 0.2),
+    inset 15px -15px 15px rgba(0, 0, 0, 0.3);
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  transform: skewX(25deg);
+}
+
+.post-it:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 75%;
+  height: 20px;
+  border-top: 3px solid #130d6b;
+  border-radius: 50%;
+  bottom: 0px;
+  left: 10%;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+h1 {
+  font-size: 25px;
+  position: relative;
+}
