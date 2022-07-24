@@ -324,3 +324,7 @@ label.button {
 .text.button {
   cursor: pointer;
 }
+
+li {
+  font-size: 14px;
+}
