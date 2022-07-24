@@ -7,6 +7,7 @@
     <title>Meme maker</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <div class="colorbar">
       <input type="color" id="color" />
@@ -130,6 +131,8 @@
       <img src="img/bg.png" alt="Background" id="background" />
       <canvas></canvas>
     </div>
+
+
     <div id="buttons">
       <button id="mode-btn">Background color</button>
       <button id="destroy-btn">Reset</button>
@@ -138,10 +141,34 @@
       <label for="file" class="button"
         >Upload Picture<input type="file" accept="image/*" id="file"
       /></label>
-      <div class="text button">
+     <div class="text button">
         Stamp
-        <input type="text" id="text" placeholder="메세지적고 화면 더블클릭" />
+        <div class="inputwrapper"><input type="text" id="text" placeholder="메세지적고 화면을 더블클릭" /></div>
       </div>
+
+<div class="radiosFont">
+  
+          <input type="radio" name="font" id="f1" class="textRadio">
+          <label for="f1" class=" textFont">A</label>
+          <input type="radio" name="font" id="f2" class="textRadio">
+          <label for="f2" class="textFont">B</label>
+          <input type="radio" name="font" id="f3" class="textRadio">
+          <label for="f3" class="textFont">C</label>
+          <input type="radio" name="font" id="f4" class="textRadio">
+          <label for="f4" class="textFont" style="font-family: customFont;">D</label>
+
+</div>
+<div class="radiosSize">
+  <input
+        type="range"
+        id="font-size"
+        min="16"
+        max="56"
+        value="1"
+        step="1"
+      />
+</div>
+
       <button id="save-btn">Save</button>
       <div class="post-it" contenteditable>
         <h1>사용방법</h1>

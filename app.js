@@ -19,6 +19,12 @@ const color = document.getElementById("color");
 const lineWidth = document.getElementById("line-width");
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
+
+const fontSelect1 = document.getElementById("f1");
+const fontSelect2 = document.getElementById("f2");
+const fontSelect3 = document.getElementById("f3");
+const fontSelect4 = document.getElementById("f4");
+const fontSize = document.getElementById("font-size");
 canvas.width = CANAVAS_WIDTH;
 canvas.height = CANAVAS_HEIGHT;
 ctx.lineWidth = lineWidth.value;
@@ -31,6 +37,13 @@ previous = { x: 0, y: 0, color: 0 };
 let points = [];
 let startPoint = { x: 0, y: 0, color: 0 };
 let pathsry = [];
+
+let fontface = "serif";
+let fontsize = 1;
+let f = new FontFace(
+  "customFont",
+  "url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Light.woff2)"
+);
 
 function onMove(event) {
   if (isPainting) {
@@ -74,7 +87,7 @@ function cancelPainting2() {
 }
 
 function onLineWidthChange(event) {
-  console.log(event.target.value);
+  // console.log(event.target.value);
   ctx.lineWidth = event.target.value;
 }
 function onColorChange(event) {
@@ -94,7 +107,7 @@ function onColorClick(event) {
   setColor(colorCode);
 }
 
-function onModeClick(event) {
+function onModeClick() {
   if (isFilling) {
     isFilling = false;
     modeBtn.innerText = "Background color";
@@ -131,7 +144,22 @@ function onFileChange(event) {
 function onDoubleClick(event) {
   ctx.save();
   const text = textInput.value;
-  ctx.font = "48px serif";
+
+  if (fontface === "arial") {
+    ctx.font = `${fontsize}px arial`;
+    console.log(`${fontsize}px arial`);
+  } else if (fontface === "serif") {
+    ctx.font = `${fontsize}px serif`;
+    console.log(`${fontsize}px serif`);
+  } else if (fontface === "courier") {
+    ctx.font = `${fontsize}px courier`;
+    console.log(`${fontsize}px courier`);
+  } else if (fontface === "customFont") {
+    f.load().then(function () {
+      ctx.font = `${fontsize}px customFont`;
+    });
+  }
+
   ctx.lineWidth = 1;
   ctx.fillText(text, event.offsetX, event.offsetY);
   ctx.restore();
@@ -165,6 +193,21 @@ function drawPaths() {
     ctx.beginPath();
   });
 }
+function onFontSelect1Click() {
+  fontface = "courier";
+}
+function onFontSelect2Click() {
+  fontface = "arial";
+}
+function onFontSelect3Click() {
+  fontface = "serif";
+}
+function onFontSelect4Click() {
+  fontface = "customFont";
+}
+function onFontSizeChange(event) {
+  fontsize = event.target.value;
+}
 
 canvas.addEventListener("dblclick", onDoubleClick);
 canvas.addEventListener("mousemove", onMove);
@@ -180,7 +223,11 @@ saveBtn.addEventListener("click", onSaveClick);
 undoBtn.addEventListener("click", onUndoClick);
 eraserBtn.addEventListener("click", onEraserClick);
 fileInput.addEventListener("change", onFileChange);
-
+fontSelect1.addEventListener("click", onFontSelect1Click);
+fontSelect2.addEventListener("click", onFontSelect2Click);
+fontSelect3.addEventListener("click", onFontSelect3Click);
+fontSelect4.addEventListener("click", onFontSelect4Click);
 colorOptions.forEach((ele) => {
   ele.addEventListener("click", onColorClick);
 });
+fontSize.addEventListener("change", onFontSizeChange);
