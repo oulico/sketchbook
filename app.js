@@ -120,11 +120,19 @@ function onModeClick() {
 function onCavasClick() {
   if (isFilling) {
     ctx.fillRect(0, 0, CANAVAS_WIDTH, CANAVAS_HEIGHT);
+    console.log(ctx.fillStyle);  
+    
+    pathsry.push(ctx.fillStyle);
+    // pushing colorcode in pathsry object
+   console.log(pathsry);
+
   }
 }
 function onDestroyClick() {
-  ctx.fillStyle = "white";
-  ctx.fillRect(0, 0, CANAVAS_WIDTH, CANAVAS_HEIGHT);
+  ctx.clearRect(0,0,CANAVAS_WIDTH,CANAVAS_HEIGHT)
+  pathsry = [];
+ 
+  
 }
 function onEraserClick() {
   ctx.strokeStyle = "white";
@@ -183,11 +191,18 @@ function drawPaths() {
   ctx.clearRect(0, 0, CANAVAS_WIDTH, CANAVAS_HEIGHT);
   // draw all the paths in the paths array
   pathsry.forEach((path) => {
+    if(typeof(path) !== "string") {
+
     ctx.moveTo(path[0].x, path[0].y);
     for (let i = 1; i < path.length; i++) {
       // ctx.moveTo(path[i].x, path[i].y);
       ctx.lineTo(path[i].x, path[i].y);
       ctx.strokeStyle = path[i].color;
+    }
+    } else {
+      ctx.fillStyle= path
+      ctx.fillRect(0,0,CANAVAS_WIDTH,CANAVAS_HEIGHT)
+
     }
     ctx.stroke();
     ctx.beginPath();
