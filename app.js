@@ -46,7 +46,7 @@ let f = new FontFace(
 );
 
 function onMove(event) {
-  if (isPainting) {
+  if (isPainting && !isFilling) {
     previous = { x: event.offsetX, y: event.offsetY };
     // console.log(previous);
     ctx.lineTo(event.offsetX, event.offsetY);
@@ -74,11 +74,15 @@ function startPainting() {
 
 function cancelPainting() {
   isPainting = false;
+  
+  if (points.length > 0) {
   pathsry.push(points);
   ctx.beginPath();
   // console.log(pathsry);
 
   // console.log(pathsry.length - 1);
+
+  }
 }
 function cancelPainting2() {
   isPainting = false;
@@ -191,7 +195,7 @@ function drawPaths() {
   ctx.clearRect(0, 0, CANAVAS_WIDTH, CANAVAS_HEIGHT);
   // draw all the paths in the paths array
   pathsry.forEach((path) => {
-    if(typeof(path) !== "string") {
+    if((typeof(path) !== "string" )) {
 
     ctx.moveTo(path[0].x, path[0].y);
     for (let i = 1; i < path.length; i++) {
@@ -199,7 +203,7 @@ function drawPaths() {
       ctx.lineTo(path[i].x, path[i].y);
       ctx.strokeStyle = path[i].color;
     }
-    } else {
+    } else{
       ctx.fillStyle= path
       ctx.fillRect(0,0,CANAVAS_WIDTH,CANAVAS_HEIGHT)
 
