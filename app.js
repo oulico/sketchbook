@@ -39,7 +39,7 @@ let startPoint = { x: 0, y: 0, color: 0 };
 let pathsry = [];
 
 let fontface = "serif";
-let fontsize = 1;
+let fontsize = 36;
 let f = new FontFace(
   "customFont",
   "url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Light.woff2)"
