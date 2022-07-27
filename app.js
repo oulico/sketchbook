@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////
 const colorSelection = document.querySelectorAll(".color-option");
 
-const CANAVAS_WIDTH = 800;
-const CANAVAS_HEIGHT = 800;
+const CANAVAS_WIDTH = 600;
+const CANAVAS_HEIGHT = 600;
 
 const textInput = document.getElementById("text");
 const fileInput = document.getElementById("file");
