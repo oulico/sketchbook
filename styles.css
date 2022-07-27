@@ -309,6 +309,7 @@ input#font-size {
 
 .inputwrapper {
   border: 3px solid white;
+  background-color: white;
 }
 input#text {
   color: black;
