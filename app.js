@@ -25,6 +25,7 @@ const fontSelect2 = document.getElementById("f2");
 const fontSelect3 = document.getElementById("f3");
 const fontSelect4 = document.getElementById("f4");
 const fontSize = document.getElementById("font-size");
+
 canvas.width = CANAVAS_WIDTH;
 canvas.height = CANAVAS_HEIGHT;
 ctx.lineWidth = lineWidth.value;
@@ -32,6 +33,7 @@ ctx.lineCap = "round";
 let isPainting = false;
 let isFilling = false;
 let isErasing = false;
+let onlyWhite = false;
 
 previous = { x: 0, y: 0, color: 0 };
 let points = [];
@@ -42,7 +44,7 @@ let fontface = "serif";
 let fontsize = 36;
 let f = new FontFace(
   "customFont",
-  "url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Light.woff2)"
+  "url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2)"
 );
 
 function onMove(event) {
@@ -95,29 +97,38 @@ function onLineWidthChange(event) {
   ctx.lineWidth = event.target.value;
 }
 function onColorChange(event) {
+
   ctx.strokeStyle = event.target.value;
   ctx.fillStyle = event.target.value;
+
 }
 
 function setColor(colorCode) {
+  if(!onlyWhite){
   ctx.strokeStyle = colorCode;
   ctx.fillStyle = colorCode;
   color.value = colorCode;
 }
+}
 
 function onColorClick(event) {
+
+  if (!isErasing) {
   console.log(event.target);
   const colorCode = event.target.dataset.color;
   setColor(colorCode);
+  }
 }
 
 function onModeClick() {
   if (isFilling) {
+    canvas.style.cursor = "crosshair";
     isFilling = false;
-    modeBtn.innerText = "Background color";
+    modeBtn.innerText = "🖼 캔버스 전체 칠하기";
   } else {
     isFilling = true;
-    modeBtn.innerText = "Draw";
+    canvas.style.cursor = "url(./img/color.png) 16 16, auto";
+    modeBtn.innerText = "🖌그리기";
   }
 }
 
@@ -139,9 +150,12 @@ function onDestroyClick() {
   
 }
 function onEraserClick() {
+  canvas.style.cursor = "url(./img/eraser.png) 0 16, auto"
   ctx.strokeStyle = "white";
+  
   isFilling = false;
-  modeBtn.innerText = "Fill";
+  onlyWhite = true;
+  modeBtn.innerText = "🖼 캔버스 전체 칠하기";
 }
 function onFileChange(event) {
   const file = event.target.files[0];
